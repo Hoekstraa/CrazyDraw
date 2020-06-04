@@ -1,6 +1,4 @@
-﻿using System;
-
-using Raylib_cs;
+﻿using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 
@@ -37,12 +35,10 @@ namespace CrazyDraw
                 //----------------------------------------------------------------------------------
             }
 
-            // De-Initialization
-            //--------------------------------------------------------------------------------------
-            CloseWindow();        // Close window and OpenGL context
-            //--------------------------------------------------------------------------------------
-
+            CloseWindow();
             return 0;
+
+
         }
     }
 }
