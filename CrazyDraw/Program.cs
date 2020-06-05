@@ -18,10 +18,23 @@ namespace CrazyDraw
             SetTargetFPS(60);
             //--------------------------------------------------------------------------------------
 
+            Canvas.CanvasManager canvasManager = new Canvas.CanvasManager();
+            ButtonCollection buttons = new ButtonCollection(canvasManager);
+
+            //ResizeVisitor rv;
+            //rv.cm = canvasManager;
+            //MoveVisitor mv;
+            //mv.cm = canvasManager;
+
             // Main game loop
             while (!WindowShouldClose())    // Detect window close button or ESC key
             {
                 // Update
+
+                canvasManager.canvas.Update();
+                //canvasManager.canvas.Visit(rv);
+                //canvasManager.canvas.Visit(mv);
+                buttons.Update();
 
                 // Draw
                 //----------------------------------------------------------------------------------
@@ -29,7 +42,8 @@ namespace CrazyDraw
 
                 ClearBackground(RAYWHITE);
 
-                DrawText("Congrats! You created your first window!", 190, 200, 20, MAROON);
+                canvasManager.canvas.Draw();
+                buttons.Draw();
 
                 EndDrawing();
                 //----------------------------------------------------------------------------------
