@@ -7,9 +7,14 @@ namespace CrazyDraw.Canvas
 {
     class Canvas
     {
-        public void Update() { }
+        public void Update() {
+            foreach (var fig in figures)
+                fig.Update();
+        }
+
         public void Visit(IFigure.IVisitor visitor) {
-        
+            foreach (var fig in figures)
+                visitor.Visit((BasicFigure)fig);
         }
 
         public void Draw() { 

@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using CrazyDraw.Canvas;
 using System.Reflection.Metadata.Ecma335;
+using CrazyDraw.Figures;
 
 namespace CrazyDraw
 {
@@ -41,11 +42,32 @@ namespace CrazyDraw
 
         public ButtonCollection(CanvasManager canvasManager)
         {
-            buttons.Add(new Button(10, 10, "Hello", () =>
+            buttons.Add(new Button(10, 10, "Rectangle", () =>
             {
                 Console.WriteLine("Button pressed!");
+                canvasManager.canvas.AddFigure(new BasicFigure(200, 500, 40, 40));
                 return true;
             }));
+
+            buttons.Add(new Button(10, 10 + 25 * 1, "Ellipse", () =>
+            {
+                Console.WriteLine("Ellipse pressed!");
+                canvasManager.canvas.AddFigure(new BasicFigure(300,400,40,30));
+                return true;
+            }));
+
+            buttons.Add(new Button(10, 10 + 25 * 2, "Do", () =>
+            {
+                Console.WriteLine("Do pressed!");
+                return true;
+            }));
+
+            buttons.Add(new Button(10, 10 + 25 * 3, "Undo", () =>
+            {
+                Console.WriteLine("Undo pressed!");
+                return true;
+            }));
+
         }
         public void Draw() { foreach (var b in buttons) b.Draw(); }
         public void Update() { foreach (var b in buttons) b.Update(); }

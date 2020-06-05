@@ -8,7 +8,8 @@ namespace CrazyDraw.Figures
     {
         internal interface IVisitor
         {
-
+            public void Visit(BasicFigure basicFigure);
+            public void Visit(Group group);
         }
     }
 }

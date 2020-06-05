@@ -9,7 +9,10 @@ namespace CrazyDraw.Figures
     {
         internal class MoveVisitor : IVisitor
         {
-            public MoveVisitor(CanvasManager canvasManager) { }
+            CanvasManager canvasManager;
+            public MoveVisitor(CanvasManager canvasManager) { this.canvasManager = canvasManager; }
+            public void Visit(BasicFigure basicFigure) { }
+            public void Visit(Group group) { }
         }
     }
 }

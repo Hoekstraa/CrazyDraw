@@ -5,6 +5,7 @@ using CrazyDraw.Figures;
 
 namespace CrazyDraw
 {
+
     class Program
     {
         public static int Main()

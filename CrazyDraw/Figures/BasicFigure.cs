@@ -8,16 +8,19 @@ namespace CrazyDraw.Figures
 {
     partial class BasicFigure : IFigure
     {
-        float posX;
-        float posY;
-        float width;
-        float height;
+        /// <summary>
+        /// Internal so Visitors can interact.
+        /// </summary>
+        internal float posX;
+        internal float posY;
+        internal float width;
+        internal float height;
         Color color = BLUE;
-        bool mouseScaleReady = false;
-        bool mouseScaleMode = false;
-        bool selected = false;
-        bool mouseMoveMode = false;
-        Vector2 mousePositionLastFrame = new Vector2(0, 0);
+        internal bool mouseScaleReady = false;
+        internal bool mouseScaleMode = false;
+        internal bool selected = false;
+        internal bool mouseMoveMode = false;
+        internal Vector2 mousePositionLastFrame = new Vector2(0, 0);
         int uid;
         Strategy strat;
 
