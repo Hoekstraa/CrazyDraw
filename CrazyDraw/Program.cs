@@ -1,6 +1,7 @@
 ﻿using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
+using CrazyDraw.Figures;
 
 namespace CrazyDraw
 {
@@ -24,11 +25,12 @@ namespace CrazyDraw
             var rv = new Figures.IFigure.ResizeVisitor(canvasManager);
             var mv = new Figures.IFigure.MoveVisitor(canvasManager);
 
+            canvasManager.canvas.AddFigure(new BasicFigure(30, 50, 100, 200));
+
             // Main game loop
             while (!WindowShouldClose())    // Detect window close button or ESC key
             {
                 // Update
-
                 canvasManager.canvas.Update();
                 canvasManager.canvas.Visit(rv);
                 canvasManager.canvas.Visit(mv);
@@ -49,8 +51,6 @@ namespace CrazyDraw
 
             CloseWindow();
             return 0;
-
-
         }
     }
 }
