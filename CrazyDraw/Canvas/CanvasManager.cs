@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using CrazyDraw.Figures;
 
 namespace CrazyDraw.Canvas
 {
@@ -13,6 +14,7 @@ namespace CrazyDraw.Canvas
         public void Do() { }
         public void Undo(){ }
         public void Redo() { }
+
 
         //List<Command> commands;
         //List<Command> undoneCommands;

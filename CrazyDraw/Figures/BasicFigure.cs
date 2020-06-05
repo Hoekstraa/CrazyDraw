@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace CrazyDraw.Figures
 {
-    partial class BasicFigure : Figure
+    partial class BasicFigure : IFigure
     {
         float posX;
         float posY;

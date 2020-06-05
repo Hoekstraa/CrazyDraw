@@ -4,7 +4,7 @@ using static Raylib_cs.Color;
 
 namespace CrazyDraw.Figures
 {
-    interface Figure
+    partial interface IFigure
     {
         public void Update();
         public void Draw();

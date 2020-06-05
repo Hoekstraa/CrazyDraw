@@ -21,10 +21,8 @@ namespace CrazyDraw
             Canvas.CanvasManager canvasManager = new Canvas.CanvasManager();
             ButtonCollection buttons = new ButtonCollection(canvasManager);
 
-            //ResizeVisitor rv;
-            //rv.cm = canvasManager;
-            //MoveVisitor mv;
-            //mv.cm = canvasManager;
+            var rv = new Figures.IFigure.ResizeVisitor(canvasManager);
+            var mv = new Figures.IFigure.MoveVisitor(canvasManager);
 
             // Main game loop
             while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -32,8 +30,8 @@ namespace CrazyDraw
                 // Update
 
                 canvasManager.canvas.Update();
-                //canvasManager.canvas.Visit(rv);
-                //canvasManager.canvas.Visit(mv);
+                canvasManager.canvas.Visit(rv);
+                canvasManager.canvas.Visit(mv);
                 buttons.Update();
 
                 // Draw
