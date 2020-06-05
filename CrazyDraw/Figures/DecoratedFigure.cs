@@ -6,6 +6,8 @@ namespace CrazyDraw.Figures
 {
     class DecoratedFigure : IFigure
     {
+        IFigure figure;
+        public DecoratedFigure(IFigure figure) { this.figure = figure; }
         public void Update() { }
         public void Draw() { }
         public int UID() { return 1; }
