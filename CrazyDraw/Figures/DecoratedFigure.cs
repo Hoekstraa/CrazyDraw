@@ -11,7 +11,7 @@ namespace CrazyDraw.Figures
     {
         IFigure figure;
 
-        string north = "Hallo";
+        string north = "";
         string south = "";
         string east = "";
         string west = "";
@@ -22,9 +22,19 @@ namespace CrazyDraw.Figures
         public void Draw()
         {
             figure.Draw();
-            DrawTextRec(GetFontDefault(), north,
-                new Rectangle(figure.Size().x,figure.Size().y,figure.Size().width,figure.Size().height),
+            DrawTextRec(GetFontDefault(), south,
+                new Rectangle(figure.Size().x,figure.Size().y + 50, figure.Size().width,figure.Size().height),
 			    20, 1, true, BLACK);
+            DrawTextRec(GetFontDefault(), north,
+                new Rectangle(figure.Size().x, figure.Size().y - 20, figure.Size().width, figure.Size().height ),
+                20, 1, true, BLACK);
+                DrawTextRec(GetFontDefault(), west,
+                new Rectangle(figure.Size().x-40, figure.Size().y, figure.Size().width, figure.Size().height),
+                20, 1, true, BLACK);
+                DrawTextRec(GetFontDefault(), east,
+                new Rectangle(figure.Size().x, figure.Size().y, figure.Size().width, figure.Size().height),
+                20, 1, true, BLACK);
+
             //DrawText(north, );
             //DrawText(south, );
             //...
@@ -33,6 +43,24 @@ namespace CrazyDraw.Figures
         public void Accept(IFigure.IVisitor visitor)
         {
             visitor.Visit(this);
+        }
+        public void setSouth(string South) 
+        {
+            south = South;
+            figure.Size();
+
+        }
+        public void setWest(string West)
+        {
+            west = West;
+        }
+        public void setEast(string East)
+        {
+            east = East;
+        }
+        public void setNorth(string North)
+        {
+            north = North;
         }
 
 

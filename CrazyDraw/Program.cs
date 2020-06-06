@@ -27,9 +27,11 @@ namespace CrazyDraw
 
             BasicFigure.EllipseStrategy rectangleStrat = BasicFigure.EllipseStrategy.Instance;
 
-            DecoratedFigure df = new DecoratedFigure(new BasicFigure(200, 200, 50, 50, BasicFigure.RectangleStrategy.Instance));
+            DecoratedFigure df = new DecoratedFigure(new BasicFigure(300, 300, 50, 50, BasicFigure.RectangleStrategy.Instance));
             canvasManager.canvas.AddFigure(df);
-            //df.north = "Hallo";
+            df.setNorth("iets");
+            df.setSouth("Pog");
+            df.setWest("west");
 
             // Main game loop
             while (!WindowShouldClose())    // Detect window close button or ESC key

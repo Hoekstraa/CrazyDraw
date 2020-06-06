@@ -87,7 +87,10 @@ namespace CrazyDraw.Figures
                 }
             }
 
-            public void Visit(DecoratedFigure f) { }
+            public void Visit(DecoratedFigure f) { 
+
+           
+            }
         }
     }
 }
