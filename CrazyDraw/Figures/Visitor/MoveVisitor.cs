@@ -44,6 +44,8 @@ namespace CrazyDraw.Figures
             }
 
             public void Visit(Group group) { }
+
+            public void Visit(DecoratedFigure f) { }
         }
     }
 }

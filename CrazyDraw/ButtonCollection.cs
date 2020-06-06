@@ -45,14 +45,14 @@ namespace CrazyDraw
         {
             buttons.Add(new Button(10, 10, "Rectangle", () =>
             {
-                MakeFigure mf = new MakeFigure(canvasManager, new BasicFigure(100,10,30,30, BasicFigure.RectangleStrategy.Instance));
+                MakeFigure mf = new MakeFigure(canvasManager, new BasicFigure(120,20,30,30, BasicFigure.RectangleStrategy.Instance));
                 canvasManager.Do(mf);
                 return true;
             }));
 
             buttons.Add(new Button(10, 10 + 25 * 1, "Ellipse", () =>
             {
-                MakeFigure mf = new MakeFigure(canvasManager, new BasicFigure(100, 40, 30, 30, BasicFigure.RectangleStrategy.Instance));
+                MakeFigure mf = new MakeFigure(canvasManager, new BasicFigure(120, 60, 30, 30, BasicFigure.EllipseStrategy.Instance));
                 canvasManager.Do(mf);
                 return true;
             }));

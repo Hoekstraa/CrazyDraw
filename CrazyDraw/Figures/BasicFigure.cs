@@ -25,8 +25,14 @@ namespace CrazyDraw.Figures
         int uid;
         Strategy strat;
 
+        /// <summary>
+        /// Used for Move Command
+        /// </summary>
         internal float OldX { get; set; }
         internal float OldY { get; set; }
+        /// <summary>
+        /// Used for Resize Command
+        /// </summary>
         internal float OldWidth { get; set; }
         internal float OldHeight { get; set; }
 
@@ -45,6 +51,12 @@ namespace CrazyDraw.Figures
         public void Draw() {
             strat.Draw(posX,posY,width,height, color,selected,mouseScaleReady);
         }
+
+        public void Accept(IFigure.IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
         public int UID() { return uid; }
 
         public bool Collide(Vector2 point) { return strat.Collide(posX, posY, width, height, point); }

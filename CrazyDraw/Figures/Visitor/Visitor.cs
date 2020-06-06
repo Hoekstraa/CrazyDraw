@@ -10,6 +10,7 @@ namespace CrazyDraw.Figures
         {
             public void Visit(BasicFigure basicFigure);
             public void Visit(Group group);
+            public void Visit(DecoratedFigure decoratedFigure);
         }
     }
 }

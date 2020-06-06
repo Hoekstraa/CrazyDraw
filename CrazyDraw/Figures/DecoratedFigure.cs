@@ -13,6 +13,11 @@ namespace CrazyDraw.Figures
         public void Update() { }
         public void Draw() { }
         public int UID() { return 1; }
+        public void Accept(IFigure.IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
 
         public bool Collide(Vector2 point) { Console.WriteLine("Placeholder hit"); return false; }
         public Rectangle Size() { return new Rectangle(0, 0, 0, 0); }

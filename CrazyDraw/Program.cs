@@ -26,7 +26,7 @@ namespace CrazyDraw
             var rv = new Figures.IFigure.ResizeVisitor(canvasManager);
             var mv = new Figures.IFigure.MoveVisitor(canvasManager);
 
-            BasicFigure.RectangleStrategy rectangleStrat = BasicFigure.RectangleStrategy.Instance;
+            BasicFigure.EllipseStrategy rectangleStrat = BasicFigure.EllipseStrategy.Instance;
 
             // Main game loop
             while (!WindowShouldClose())    // Detect window close button or ESC key

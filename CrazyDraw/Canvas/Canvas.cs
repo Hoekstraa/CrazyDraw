@@ -14,7 +14,7 @@ namespace CrazyDraw.Canvas
 
         public void Visit(IFigure.IVisitor visitor) {
             foreach (var fig in figures)
-                visitor.Visit((BasicFigure)fig);
+                fig.Accept(visitor);
         }
 
         public void Draw() { 

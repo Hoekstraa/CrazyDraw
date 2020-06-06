@@ -86,6 +86,8 @@ namespace CrazyDraw.Figures
                         g.mouseScaleMode = false;
                 }
             }
+
+            public void Visit(DecoratedFigure f) { }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace CrazyDraw.Figures
     {
         public void Update();
         public void Draw();
+        public void Accept(IVisitor visitor);
         public int UID();
         public bool Collide(Vector2 point);
         public Rectangle Size();
