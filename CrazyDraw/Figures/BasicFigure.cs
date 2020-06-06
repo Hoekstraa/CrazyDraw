@@ -25,6 +25,8 @@ namespace CrazyDraw.Figures
         int uid;
         Strategy strat;
 
+        internal float OldX { get; set; }
+        internal float OldY { get; set; }
         internal float OldWidth { get; set; }
         internal float OldHeight { get; set; }
 
@@ -50,5 +52,6 @@ namespace CrazyDraw.Figures
         public Rectangle Size() { return new Rectangle(posX, posY, width, height); }
 
         public void Resize(float x, float y) { width = x; height = y; }
+        public void Move(float x, float y) { posX = x; posY = y; }
     }
 }

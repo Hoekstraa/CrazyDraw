@@ -13,5 +13,6 @@ namespace CrazyDraw.Figures
         public bool Collide(Vector2 point);
         public Rectangle Size();
         public void Resize(float x, float y);
+        public void Move(float x, float y);
     }
 }

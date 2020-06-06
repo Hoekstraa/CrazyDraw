@@ -21,5 +21,6 @@ namespace CrazyDraw.Figures
         public Rectangle Size() { return new Rectangle(0, 0, 0, 0); }
 
         public void Resize(float x, float y){Console.WriteLine("Resize Group hit");}
+        public void Move(float x, float y){Console.WriteLine("Move Group hit");}
     }
 }

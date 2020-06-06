@@ -6,6 +6,7 @@ using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 using static Raylib_cs.MouseButton;
 using Raylib_cs;
+using CrazyDraw.Commands;
 
 namespace CrazyDraw.Figures
 {
@@ -23,10 +24,15 @@ namespace CrazyDraw.Figures
                     && f.mousePositionLastFrame.Y != GetMousePosition().Y
                 )
                 {
+                    f.OldX = f.posX;
+                    f.OldY = f.posY;
                     f.mouseMoveMode = true;
                 }
-                if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
+                if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON) && f.mouseMoveMode == true)
+                {
+                    canvasManager.Do(new MoveFigure(f.OldX, f.OldY, f.posX, f.posY, f));
                     f.mouseMoveMode = false;
+                }
 
                 if(f.mouseMoveMode)
                 {
