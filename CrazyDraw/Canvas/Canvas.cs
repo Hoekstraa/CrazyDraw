@@ -22,7 +22,7 @@ namespace CrazyDraw.Canvas
                 fig.Draw();
         }
         public void AddFigure(IFigure figure) { figures.Add(figure); }
-        public void removeFigure() { }
+        public void RemoveFigure(IFigure figure) { figures.RemoveAll((IFigure f) => f.UID() == figure.UID()); }
         public void GroupSelected() { }
 
         List<IFigure> figures = new List<IFigure>();

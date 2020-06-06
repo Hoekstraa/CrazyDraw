@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using CrazyDraw.Canvas;
 using System.Reflection.Metadata.Ecma335;
 using CrazyDraw.Figures;
+using CrazyDraw.Commands;
 
 namespace CrazyDraw
 {
@@ -44,27 +45,38 @@ namespace CrazyDraw
         {
             buttons.Add(new Button(10, 10, "Rectangle", () =>
             {
-                Console.WriteLine("Button pressed!");
-                canvasManager.canvas.AddFigure(new BasicFigure(200, 500, 40, 40));
+                MakeFigure mf = new MakeFigure(canvasManager, new BasicFigure(100,10,30,30, BasicFigure.RectangleStrategy.Instance));
+                canvasManager.Do(mf);
                 return true;
             }));
 
             buttons.Add(new Button(10, 10 + 25 * 1, "Ellipse", () =>
             {
-                Console.WriteLine("Ellipse pressed!");
-                canvasManager.canvas.AddFigure(new BasicFigure(300,400,40,30));
+                MakeFigure mf = new MakeFigure(canvasManager, new BasicFigure(100, 40, 30, 30, BasicFigure.RectangleStrategy.Instance));
+                canvasManager.Do(mf);
                 return true;
             }));
 
-            buttons.Add(new Button(10, 10 + 25 * 2, "Do", () =>
+            buttons.Add(new Button(10, 10 + 25 * 2, "Undo", () =>
             {
-                Console.WriteLine("Do pressed!");
+                canvasManager.Undo();
+                return true;
+            }));
+            buttons.Add(new Button(10, 10 + 25 * 3, "Redo", () =>
+            {
+                canvasManager.Redo();
                 return true;
             }));
 
-            buttons.Add(new Button(10, 10 + 25 * 3, "Undo", () =>
+            buttons.Add(new Button(10, 10 + 25 * 4, "Open", () =>
             {
-                Console.WriteLine("Undo pressed!");
+                Console.WriteLine("Open pressed!");
+                return true;
+            }));
+
+            buttons.Add(new Button(10, 10 + 25 * 5, "Save", () =>
+            {
+                Console.WriteLine("Save pressed!");
                 return true;
             }));
 

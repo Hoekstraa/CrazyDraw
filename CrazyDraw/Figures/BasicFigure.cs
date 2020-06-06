@@ -3,6 +3,7 @@ using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 using System.Numerics;
 using System.Collections.Generic;
+using System;
 
 namespace CrazyDraw.Figures
 {
@@ -15,7 +16,7 @@ namespace CrazyDraw.Figures
         internal float posY;
         internal float width;
         internal float height;
-        Color color = BLUE;
+        Color color = SKYBLUE;
         internal bool mouseScaleReady = false;
         internal bool mouseScaleMode = false;
         internal bool selected = false;
@@ -24,21 +25,27 @@ namespace CrazyDraw.Figures
         int uid;
         Strategy strat;
 
-        public BasicFigure(float posX, float posY, float width, float height)//, Strategy strat)
+        public BasicFigure(float posX, float posY, float width, float height, Strategy strat)
         {
             this.posX = posX;
             this.posY = posY;
             this.width = width;
             this.height = height;
-            //this.strat = strat;
+            this.strat = strat;
+            uid = Global.UniqueId;
+            Global.UniqueId += 1;
         }
 
         public void Update() { }
         public void Draw() {
-            DrawRectangleRec(Size(), color);
+            strat.Draw(posX,posY,width,height, color,selected,mouseScaleReady);
         }
-        public int UID() { return 1; }
+        public int UID() { return uid; }
+
+        public bool Collide(Vector2 point) { return strat.Collide(posX, posY, width, height, point); }
+
         public Rectangle Size() { return new Rectangle(posX, posY, width, height); }
 
+        public void Resize(float x, float y) { width = x; height = y; }
     }
 }

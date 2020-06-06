@@ -42,6 +42,7 @@ namespace CrazyDraw.Figures
                     if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
                     {
                         f.mouseScaleMode = false;
+                        canvasManager.Add(new Commands.ResizeFigure(0,0,f.width,f.height, f));
                     }
                 }
             }
