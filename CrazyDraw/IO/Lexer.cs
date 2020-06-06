@@ -27,8 +27,8 @@ namespace CrazyDraw.IO
 
     class Lexer
     {
-        List<string> Split(string sentence) { }
-        public List<Lexeme> Lex(List<string> splitSentence) { }
+        //List<string> Split(string sentence) { }
+        //public List<Lexeme> Lex(List<string> splitSentence) { }
 
     }
 }
