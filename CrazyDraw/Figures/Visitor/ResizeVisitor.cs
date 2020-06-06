@@ -25,7 +25,12 @@ namespace CrazyDraw.Figures
                     Global.MOUSE_SCALE_MARK_SIZE, Global.MOUSE_SCALE_MARK_SIZE)))
                 {
                     f.mouseScaleReady = true;
-                    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) f.mouseScaleMode = true;
+                    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                    {
+                        f.mouseScaleMode = true;
+                        f.OldWidth = f.width;
+                        f.OldHeight = f.height;
+                    }
                 }
                 else f.mouseScaleReady = false;
 
@@ -42,7 +47,7 @@ namespace CrazyDraw.Figures
                     if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
                     {
                         f.mouseScaleMode = false;
-                        canvasManager.Add(new Commands.ResizeFigure(0,0,f.width,f.height, f));
+                        canvasManager.Do(new Commands.ResizeFigure(f.OldWidth,f.OldHeight,f.width,f.height, f));
                     }
                 }
             }

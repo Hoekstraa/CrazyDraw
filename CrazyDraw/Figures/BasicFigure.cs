@@ -25,6 +25,9 @@ namespace CrazyDraw.Figures
         int uid;
         Strategy strat;
 
+        internal float OldWidth { get; set; }
+        internal float OldHeight { get; set; }
+
         public BasicFigure(float posX, float posY, float width, float height, Strategy strat)
         {
             this.posX = posX;
