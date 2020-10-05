@@ -11,6 +11,16 @@ namespace CrazyDraw.Figures
     {
         IFigure figure;
 
+        internal bool mouseScaleReady = false;
+        internal bool mouseScaleMode = false;
+        internal bool selected = false;
+        internal bool mouseMoveMode = false;
+        internal Vector2 mousePositionLastFrame = new Vector2(0, 0);
+        internal float OldX;
+        internal float OldY;
+        internal float posX;
+        internal float posY;
+
         string north = "";
         string south = "";
         string east = "";
@@ -64,7 +74,7 @@ namespace CrazyDraw.Figures
         }
 
 
-        public bool Collide(Vector2 point) { Console.WriteLine("Placeholder hit"); return false; }
+        public bool Collide(Vector2 point) { Console.WriteLine("DecoratedFigure Collide() placeholder hit"); return false; }
         public Rectangle Size() { return new Rectangle(0, 0, 0, 0); }
 
         public void Resize(float x, float y) { Console.WriteLine("Resize DecoratedFigure hit"); }

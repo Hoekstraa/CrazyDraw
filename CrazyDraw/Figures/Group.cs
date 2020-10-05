@@ -21,7 +21,7 @@ namespace CrazyDraw.Figures
             visitor.Visit(this);
         }
         public int UID() { return 1; }
-        public bool Collide(Vector2 point) { Console.WriteLine("Placeholder hit"); return false; }
+        public bool Collide(Vector2 point) { Console.WriteLine("Group Collide() placeholder hit"); return false; }
         public Rectangle Size() { return new Rectangle(0, 0, 0, 0); }
 
         public void Resize(float x, float y){Console.WriteLine("Resize Group hit");}

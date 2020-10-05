@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using CrazyDraw.Canvas;
+using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 using static Raylib_cs.MouseButton;
-using Raylib_cs;
 using CrazyDraw.Commands;
 
 namespace CrazyDraw.Figures
