@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace CrazyDraw.IO
 {
@@ -22,9 +19,9 @@ namespace CrazyDraw.IO
     struct Lexeme
     {
         public Lexeme(TokenType type, string str, int number) { this.type = type; this.str = str; this.number = number; }
-        TokenType type;
-        string str;
-        int number;
+        public TokenType type;
+        public string str;
+        public int number;
     }
 
     class Lexer

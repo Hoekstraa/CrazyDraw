@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
+﻿using System.Collections.Generic;
 using CrazyDraw.Commands;
-using CrazyDraw.Figures;
 using System.Linq;
 
 namespace CrazyDraw.Canvas
@@ -14,7 +10,6 @@ namespace CrazyDraw.Canvas
 
         public CanvasManager() { }
         public void Do(ICommand c) { c.Do(); commands.Add(c); }
-        //public void Add(ICommand c) { commands.Add(c); }
         public void Undo()
         {
             if (commands.Count > 0)

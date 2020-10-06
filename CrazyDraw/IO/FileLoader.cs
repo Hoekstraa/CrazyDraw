@@ -6,5 +6,6 @@ namespace CrazyDraw.IO
 {
     class FileLoader
     {
+
     }
 }

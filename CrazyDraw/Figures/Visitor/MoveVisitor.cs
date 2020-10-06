@@ -46,6 +46,7 @@ namespace CrazyDraw.Figures
             public void Visit(Group group) { }
 
             public void Visit(DecoratedFigure f) {
+                /*
                 if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)
                 && f.Collide(GetMousePosition())
                 && f.mousePositionLastFrame.X != GetMousePosition().X
@@ -69,6 +70,7 @@ namespace CrazyDraw.Figures
                 }
 
                 f.mousePositionLastFrame = GetMousePosition();
+                */
             }
         }
     }

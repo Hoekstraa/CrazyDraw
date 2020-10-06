@@ -3,6 +3,7 @@ using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 using System.Numerics;
 using System;
+using System.Collections.Generic;
 
 namespace CrazyDraw.Figures
 {
@@ -26,5 +27,7 @@ namespace CrazyDraw.Figures
 
         public void Resize(float x, float y){Console.WriteLine("Resize Group hit");}
         public void Move(float x, float y){Console.WriteLine("Move Group hit");}
+
+        public List<IFigure> figures;
     }
 }

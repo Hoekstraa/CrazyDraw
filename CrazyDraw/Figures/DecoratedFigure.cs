@@ -11,6 +11,7 @@ namespace CrazyDraw.Figures
     {
         IFigure figure;
 
+        /*
         internal bool mouseScaleReady = false;
         internal bool mouseScaleMode = false;
         internal bool selected = false;
@@ -20,6 +21,7 @@ namespace CrazyDraw.Figures
         internal float OldY;
         internal float posX;
         internal float posY;
+        */
 
         string north = "";
         string south = "";
