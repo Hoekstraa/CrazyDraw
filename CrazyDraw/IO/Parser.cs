@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using CrazyDraw.Figures;
 
 namespace CrazyDraw.IO
@@ -8,12 +7,12 @@ namespace CrazyDraw.IO
     class Parser
     {
         List<Lexeme> tokens;
-        
+
         public Parser(List<Lexeme> lexemes)
         {
             tokens = lexemes; //tokens.Reverse(); //NOTICE: REVERSE LOGIC FROM C++ CODE!
         }
-        
+
         public Group Parse()
         {
             Group result = new Group();
@@ -42,13 +41,77 @@ namespace CrazyDraw.IO
                 Console.WriteLine("[Error] Group doesn't have a number after it!");
 
             for (int i = 0; i < subfigures; i++)
-                result.figures.Add(Fig(Pop()));
-
+            {
+                IFigure f = Fig(Pop());
+                Console.WriteLine("[DEBUG] Made an IFigure.");
+                if(f == null) Console.WriteLine("[Error] IFigureis null.");
+                result.figures.Add(f);
+                Console.WriteLine("[DEBUG] Added an IFigure to group.");
+            }   
             Console.WriteLine("Made a group of size " + result.figures.Count);
             return result;
-
         }
-        private Ornament Ornmnt(Lexeme Ornament){return new Ornament(direction,string)}
-        private Figure Fig(Lexeme figure){}
+
+        private IFigure Fig(Lexeme figure)
+        {
+
+            IFigure result;
+            String north = "";
+            String south = "";
+            String west = "";
+            String east = "";
+
+            while (figure.type == TokenType.ORNAMENT)
+            {
+                Console.WriteLine("[DEBUG] Reading in a: " + figure.str); // Print lexeme type for debugging
+                // tokentype is ornament
+                // tokentype should be direction
+                var direction = Pop();
+                // tokentype should be string with text
+                var content = Pop();
+                if(direction.str == "north") north = content.str;
+                if(direction.str == "south") south = content.str;
+                if(direction.str == "west") west = content.str;
+                if(direction.str == "east") east = content.str;
+
+                figure = Pop();
+            }
+
+            if(figure.type == TokenType.RECTANGLE)
+            {
+                Console.WriteLine("[DEBUG] Reading in a: " + figure.str); // Print lexeme type for debugging
+                result = new BasicFigure(Pop().number,Pop().number,Pop().number,Pop().number,BasicFigure.RectangleStrategy.Instance);
+            }
+            else if(figure.type == TokenType.ELLIPSE)
+            {
+                Console.WriteLine("[DEBUG] Reading in a: " + figure.str); // Print lexeme type for debugging
+                result = new BasicFigure(Pop().number,Pop().number,Pop().number,Pop().number,BasicFigure.EllipseStrategy.Instance);
+            }
+            else if(figure.type == TokenType.GROUP)
+            {
+                Console.WriteLine("[DEBUG] Reading in a: " + figure.str); // Print lexeme type for debugging
+                result = Grp();
+            }
+            else
+            {
+                Console.WriteLine("[DEBUG] Reading in a: " + figure.str); // Print lexeme type for debugging
+                return new BasicFigure(0,0,0,0, BasicFigure.RectangleStrategy.Instance);
+            }
+
+            var decoratedResult = new DecoratedFigure(result);
+            if(north != "")
+                decoratedResult.North(north);
+            if(south != "")
+                decoratedResult.South(south);
+            if(east != "")
+                decoratedResult.East(east);
+            if(west != "")
+                decoratedResult.West(west);
+
+            if(north != "" || south != "" || east != "" || west != "")
+                return decoratedResult;
+
+            return result;
+        }
     }
 }

@@ -1,0 +1,14 @@
+group 2
+	ornament top "Rondje"
+	ornament left links
+	ornament right Rechts
+	ornament bottom Onder
+	ellipse 400 300 20 50
+	group 3
+		rectangle 600 200 100 100
+		ornament top "group"
+		ornament bottom "ellipses"
+		group 2
+			ellipse 550 350 20 50
+			ellipse 570 350 20 50
+		rectangle 100 300 10 10

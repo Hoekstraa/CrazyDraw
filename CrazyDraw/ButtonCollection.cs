@@ -10,6 +10,7 @@ using CrazyDraw.Canvas;
 using System.Reflection.Metadata.Ecma335;
 using CrazyDraw.Figures;
 using CrazyDraw.Commands;
+using CrazyDraw.IO;
 
 namespace CrazyDraw
 {
@@ -71,6 +72,8 @@ namespace CrazyDraw
             buttons.Add(new Button(10, 10 + 25 * 4, "Open", () =>
             {
                 Console.WriteLine("Open pressed!");
+                var fl = new FileLoader("./grammar.test");
+                canvasManager.canvas.AddFigure(fl.Read());
                 return true;
             }));
 

@@ -1,16 +1,13 @@
 ﻿using Raylib_cs;
-using System;
-using System.Collections.Generic;
 using System.Numerics;
-using System.Text;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 
 namespace CrazyDraw.Figures
 {
- partial class BasicFigure
+    partial class BasicFigure
     {
-         public sealed class RectangleStrategy : Strategy
+        public sealed class RectangleStrategy : Strategy
         {
             private static readonly RectangleStrategy instance = new RectangleStrategy();
 
@@ -34,12 +31,12 @@ namespace CrazyDraw.Figures
             public bool Collide(float x, float y, float width, float height, Vector2 point)
             {
                 return CheckCollisionPointRec(point, new Rectangle(x, y, width, height))
-                        && !CheckCollisionPointRec(
+                    && !CheckCollisionPointRec(
                             point,
                             new Rectangle(x + width - Global.MOUSE_SCALE_MARK_SIZE,
-                            y + height - Global.MOUSE_SCALE_MARK_SIZE,
-                            Global.MOUSE_SCALE_MARK_SIZE,
-                            Global.MOUSE_SCALE_MARK_SIZE));
+                                y + height - Global.MOUSE_SCALE_MARK_SIZE,
+                                Global.MOUSE_SCALE_MARK_SIZE,
+                                Global.MOUSE_SCALE_MARK_SIZE));
             }
             public void Draw(float posX, float posY, float width, float height, Color color, bool selected, bool mouseScaleReady)
             {
@@ -52,12 +49,13 @@ namespace CrazyDraw.Figures
                 if (mouseScaleReady)
                 {
                     DrawRectangleLinesEx(rec, 1, BLACK);
-                    DrawTriangle(new Vector2(
-                                        rec.x + rec.width - Global.MOUSE_SCALE_MARK_SIZE,
-                                        rec.y + rec.height),
-                                new Vector2(rec.x + rec.width, rec.y + rec.height),
-                                new Vector2(rec.x + rec.width,
-                                        rec.y + rec.height - Global.MOUSE_SCALE_MARK_SIZE), BLACK);
+                    DrawTriangle(
+                            new Vector2(
+                                rec.x + rec.width - Global.MOUSE_SCALE_MARK_SIZE,
+                                rec.y + rec.height),
+                            new Vector2(rec.x + rec.width, rec.y + rec.height),
+                            new Vector2(rec.x + rec.width,
+                                rec.y + rec.height - Global.MOUSE_SCALE_MARK_SIZE), BLACK);
                 }
             }
             public string ToString(float indents, float x, float y, float width, float height) { return ""; }

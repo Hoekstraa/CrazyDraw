@@ -19,10 +19,10 @@ namespace CrazyDraw.Figures
             public void Visit(BasicFigure f)
             {
                 if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)
-                    && f.Collide(GetMousePosition())
-                    && f.mousePositionLastFrame.X != GetMousePosition().X
-                    && f.mousePositionLastFrame.Y != GetMousePosition().Y
-                )
+                        && f.Collide(GetMousePosition())
+                        && f.mousePositionLastFrame.X != GetMousePosition().X
+                        && f.mousePositionLastFrame.Y != GetMousePosition().Y
+                   )
                 {
                     f.OldX = f.posX;
                     f.OldY = f.posY;
@@ -48,10 +48,10 @@ namespace CrazyDraw.Figures
             public void Visit(DecoratedFigure f) {
                 /*
                 if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)
-                && f.Collide(GetMousePosition())
-                && f.mousePositionLastFrame.X != GetMousePosition().X
-                && f.mousePositionLastFrame.Y != GetMousePosition().Y
-            )
+                        && f.Collide(GetMousePosition())
+                        && f.mousePositionLastFrame.X != GetMousePosition().X
+                        && f.mousePositionLastFrame.Y != GetMousePosition().Y
+                   )
                 {
                     f.OldX = f.posX;
                     f.OldY = f.posY;
