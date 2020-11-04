@@ -65,5 +65,7 @@ namespace CrazyDraw.Figures
 
         public void Resize(float x, float y) { width = x; height = y; }
         public void Move(float x, float y) { posX = x; posY = y; }
+        public void RelResize(float x, float y) { width += x; height += y; }
+        public void RelMove(float x, float y) { posX += x; posY += y; }
     }
 }

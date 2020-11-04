@@ -82,6 +82,11 @@ namespace CrazyDraw
                 Console.WriteLine("Save pressed!");
                 return true;
             }));
+            buttons.Add(new Button(10, 10 + 25 * 6, "Ornament", () =>
+            {
+                Console.WriteLine("Ornament pressed!");
+                return true;
+            }));
 
         }
         public void Draw() { foreach (var b in buttons) b.Draw(); }

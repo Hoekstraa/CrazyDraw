@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CrazyDraw.Canvas;
-using Raylib_cs;
+﻿using CrazyDraw.Canvas;
 using static Raylib_cs.Raylib;
-using static Raylib_cs.Color;
 using static Raylib_cs.MouseButton;
 using CrazyDraw.Commands;
 
@@ -16,12 +11,11 @@ namespace CrazyDraw.Figures
         {
             CanvasManager canvasManager;
             public MoveVisitor(CanvasManager canvasManager) { this.canvasManager = canvasManager; }
+
             public void Visit(BasicFigure f)
             {
-                if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
                         && f.Collide(GetMousePosition())
-                        && f.mousePositionLastFrame.X != GetMousePosition().X
-                        && f.mousePositionLastFrame.Y != GetMousePosition().Y
                    )
                 {
                     f.OldX = f.posX;
@@ -43,35 +37,30 @@ namespace CrazyDraw.Figures
                 f.mousePositionLastFrame = GetMousePosition();
             }
 
-            public void Visit(Group group) { }
-
-            public void Visit(DecoratedFigure f) {
-                /*
-                if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)
+            public void Visit(Group f)
+            {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
                         && f.Collide(GetMousePosition())
-                        && f.mousePositionLastFrame.X != GetMousePosition().X
-                        && f.mousePositionLastFrame.Y != GetMousePosition().Y
                    )
                 {
-                    f.OldX = f.posX;
-                    f.OldY = f.posY;
+                    f.OldX = f.Size().x;
+                    f.OldY = f.Size().y;
                     f.mouseMoveMode = true;
                 }
-                if (f.mouseMoveMode)
-                {
-                    f.posX += (GetMousePosition().X - f.mousePositionLastFrame.X);
-                    f.posY += (GetMousePosition().Y - f.mousePositionLastFrame.Y);
-                }
+
+                if(f.mouseMoveMode)
+                    f.RelMove(GetMousePosition().X - f.mousePositionLastFrame.X, GetMousePosition().Y - f.mousePositionLastFrame.Y);
 
                 if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON) && f.mouseMoveMode == true)
                 {
-                    canvasManager.Do(new MoveFigure(f.OldX, f.OldY, f.posX, f.posY, f));
+                    canvasManager.Do(new MoveFigure(f.OldX, f.OldY, f.Size().x, f.Size().y, f));
                     f.mouseMoveMode = false;
                 }
 
                 f.mousePositionLastFrame = GetMousePosition();
-                */
             }
+
+            public void Visit(DecoratedFigure f) {}
         }
     }
 }

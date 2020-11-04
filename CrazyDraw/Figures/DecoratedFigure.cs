@@ -10,47 +10,35 @@ namespace CrazyDraw.Figures
     {
         IFigure figure;
 
-        /*
-           internal bool mouseScaleReady = false;
-           internal bool mouseScaleMode = false;
-           internal bool selected = false;
-           internal bool mouseMoveMode = false;
-           internal Vector2 mousePositionLastFrame = new Vector2(0, 0);
-           internal float OldX;
-           internal float OldY;
-           internal float posX;
-           internal float posY;
-           */
-
         string north = "";
         string south = "";
         string east = "";
         string west = "";
+        int uid;
 
-        public DecoratedFigure(IFigure figure) { this.figure = figure; }
+        public DecoratedFigure(IFigure figure) { this.figure = figure; uid = Global.UniqueId++; }
         public void Update() {figure.Update();}
 
         public void Draw()
         {
             figure.Draw();
             DrawTextRec(GetFontDefault(), south,
-                    new Rectangle(figure.Size().x,figure.Size().y + 50, figure.Size().width,figure.Size().height),
+                    new Rectangle(figure.Size().x,figure.Size().y + figure.Size().height, 100, 40 ),
                     20, 1, true, BLACK);
             DrawTextRec(GetFontDefault(), north,
-                    new Rectangle(figure.Size().x, figure.Size().y - 20, figure.Size().width, figure.Size().height ),
+                    new Rectangle(figure.Size().x, figure.Size().y - 20, 100, 40 ),
                     20, 1, true, BLACK);
             DrawTextRec(GetFontDefault(), west,
-                    new Rectangle(figure.Size().x-40, figure.Size().y, figure.Size().width, figure.Size().height),
+                    new Rectangle(figure.Size().x-40, figure.Size().y, 100, 40),
                     20, 1, true, BLACK);
             DrawTextRec(GetFontDefault(), east,
-                    new Rectangle(figure.Size().x, figure.Size().y, figure.Size().width, figure.Size().height),
+                    new Rectangle(figure.Size().x + figure.Size().width, figure.Size().y, 100, 40 ),
                     20, 1, true, BLACK);
 
         }
-        public int UID() { return 1; }
+        public int UID() { return uid; }
         public void Accept(IFigure.IVisitor visitor)
         {
-            //visitor.Visit(this);
             figure.Accept(visitor);
         }
         public void South(string South) 
@@ -73,8 +61,10 @@ namespace CrazyDraw.Figures
         public bool Collide(Vector2 point) { Console.WriteLine("DecoratedFigure Collide() placeholder hit"); return false; }
         public Rectangle Size() { return figure.Size(); }
 
-        public void Resize(float x, float y) { figure.Resize(x,y);}//Console.WriteLine("Resize DecoratedFigure hit"); }
-        public void Move(float x, float y) { figure.Move(x,y);}//Console.WriteLine("Move DecoratedFigure hit"); }
+        public void Resize(float x, float y) { figure.Resize(x,y);}
+        public void Move(float x, float y) { figure.Move(x,y);}
+        public void RelResize(float x, float y) { figure.RelResize(x,y);}
+        public void RelMove(float x, float y) { figure.RelMove(x,y);}
 
     }
 }

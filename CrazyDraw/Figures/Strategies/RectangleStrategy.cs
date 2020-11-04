@@ -59,8 +59,6 @@ namespace CrazyDraw.Figures
                 }
             }
             public string ToString(float indents, float x, float y, float width, float height) { return ""; }
-
-
         }
     }
 }
