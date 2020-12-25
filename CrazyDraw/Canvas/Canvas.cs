@@ -35,7 +35,7 @@ namespace CrazyDraw.Canvas
                 foreach(var fig in Enumerable.Reverse(figures))
                 {
                     selectedFigures.Add(fig);
-                    break;
+                    //break;
                 }
         }
 

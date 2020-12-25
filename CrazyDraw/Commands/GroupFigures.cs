@@ -14,9 +14,13 @@ namespace CrazyDraw.Commands
                 group.figures.Add(fig);
         }
         public void Do() {
+            if(group.figures.Count == 0) return;
+
             foreach(var fig in group.figures)
                 cManager.canvas.RemoveFigure(fig);
+
             cManager.canvas.AddFigure(group);
+
         }
         public void Undo() {
             foreach(var fig in group.figures)

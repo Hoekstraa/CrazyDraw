@@ -8,7 +8,7 @@ namespace CrazyDraw.Figures
 {
     class DecoratedFigure : IFigure
     {
-        IFigure figure;
+        public IFigure figure;
 
         string north = "";
         string south = "";

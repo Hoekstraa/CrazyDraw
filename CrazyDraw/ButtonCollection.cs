@@ -90,6 +90,7 @@ namespace CrazyDraw
                 else
                 {
                     Console.WriteLine("Select disabled!");
+                    canvasManager.canvas.selectedFigures.Clear();
                 }
                 return true;
             }));
@@ -98,6 +99,7 @@ namespace CrazyDraw
 
                 var mf = new GroupFigures(canvasManager, canvasManager.canvas.selectedFigures);
                 canvasManager.Do(mf);
+                canvasManager.canvas.selectedFigures.Clear();
                 Console.WriteLine("Group pressed!");
                 return true;
             }));
