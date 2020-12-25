@@ -2,7 +2,6 @@
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 using System.Numerics;
-using System;
 using System.Collections.Generic;
 
 namespace CrazyDraw.Figures
@@ -20,9 +19,17 @@ namespace CrazyDraw.Figures
 
         public Group(){uid = Global.UniqueId++;}
 
-        public string ToString(int indent)
+        public string ToString(int indents)
         {
-            return "not complete! (Group)";
+            string indent = "";
+            for (int i = 0; i < indents; i++)
+                indent += "\t";
+
+            string result = indent + "group " + figures.Count + "\n";
+            foreach(var fig in figures)
+                result += fig.ToString(indents + 1);
+            
+            return result;
         }
 
         public void Draw() {
@@ -63,7 +70,6 @@ namespace CrazyDraw.Figures
             return new Rectangle(x, y, botX - x, botY - y);
         }
 
-        // NOTE: Relative move/resize!
         public void Resize(float x, float y)
         {
             foreach(var f in figures)

@@ -67,12 +67,15 @@ namespace CrazyDraw.IO
                 // tokentype is ornament
                 // tokentype should be direction
                 var direction = Pop();
+                Console.WriteLine("[DEBUG] Direction:" + direction.str); // Print lexeme type for debugging
                 // tokentype should be string with text
                 var content = Pop();
-                if(direction.str == "north") north = content.str;
-                if(direction.str == "south") south = content.str;
-                if(direction.str == "west") west = content.str;
-                if(direction.str == "east") east = content.str;
+                Console.WriteLine("[DEBUG] Content:" + content.str); // Print lexeme type for debugging
+
+                if(direction.str == "top") north = content.str;
+                if(direction.str == "bottom") south = content.str;
+                if(direction.str == "right") west = content.str;
+                if(direction.str == "left") east = content.str;
 
                 figure = Pop();
             }

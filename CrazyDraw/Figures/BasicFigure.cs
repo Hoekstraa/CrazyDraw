@@ -49,7 +49,7 @@ namespace CrazyDraw.Figures
         
         public string ToString(int indent)
         {
-            return "not complete! (BasicFigure)";
+            return strat.ToString(indent, posX, posY, width, height);
         }
 
         public void Draw() {

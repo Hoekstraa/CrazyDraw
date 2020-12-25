@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.Collections.Generic;
 using CrazyDraw.Figures;
-using System.Text;
 
 namespace CrazyDraw.IO
 {
@@ -16,10 +15,10 @@ namespace CrazyDraw.IO
             using (StreamWriter file = new StreamWriter(filename, false))
             //using (var file = new FileStream(filename, FileMode.Open))
             {
-                file.WriteLine("group " + figures.Count);
+                file.Write("group " + figures.Count + "\n");
 
                 foreach(var fig in figures)
-                    file.WriteLine(fig.ToString(1));
+                    file.Write(fig.ToString(1));
             }
         }
     }

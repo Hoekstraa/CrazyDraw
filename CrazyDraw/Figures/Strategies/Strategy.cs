@@ -1,10 +1,5 @@
 ﻿using Raylib_cs;
-using System;
-using System.Collections.Generic;
 using System.Numerics;
-using System.Text;
-using static Raylib_cs.Raylib;
-using static Raylib_cs.Color;
 
 namespace CrazyDraw.Figures
 {

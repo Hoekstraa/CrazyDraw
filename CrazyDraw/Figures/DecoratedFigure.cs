@@ -18,10 +18,22 @@ namespace CrazyDraw.Figures
 
         public DecoratedFigure(IFigure figure) { this.figure = figure; uid = Global.UniqueId++; }
 
-        public string ToString(int indent)
+        public string ToString(int indents)
         {
-            return "not complete! (DecoratedFigure)";
+            string indent = "";
+            string result = "";
+
+            for(int i = 0; i < indents; i++)
+                indent += "\t";
+
+            result += north == "" ? "" : indent + "ornament north " + north + "\n";
+            result += east  == "" ? "" : indent + "ornament east "  + east  + "\n";
+            result += south == "" ? "" : indent + "ornament south " + south + "\n";
+            result += west  == "" ? "" : indent + "ornament west "  + west  + "\n";
+
+            return result + figure.ToString(indents);
         }
+
 
         public void Draw()
         {

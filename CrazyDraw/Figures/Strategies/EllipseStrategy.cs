@@ -61,8 +61,16 @@ namespace CrazyDraw.Figures
         BLACK);
                 }
             }
-            public string ToString(float indents, float x, float y, float width, float height) { return ""; }
 
+            public string ToString(float indents, float x, float y, float width, float height)
+            {
+                string indent = "";
+
+                for(int i = 0; i < indents; i++)
+                    indent += "\t";
+
+                return indent + "ellipse " + x + " " + y + " " + width + " " + height + "\n";
+            }
 
         }
     }
