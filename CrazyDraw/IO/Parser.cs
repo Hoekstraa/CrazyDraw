@@ -44,10 +44,10 @@ namespace CrazyDraw.IO
             {
                 IFigure f = Fig(Pop());
                 Console.WriteLine("[DEBUG] Made an IFigure.");
-                if(f == null) Console.WriteLine("[Error] IFigureis null.");
+                if(f == null) Console.WriteLine("[Error] IFigure is null.");
                 result.figures.Add(f);
                 Console.WriteLine("[DEBUG] Added an IFigure to group.");
-            }   
+            }
             Console.WriteLine("Made a group of size " + result.figures.Count);
             return result;
         }

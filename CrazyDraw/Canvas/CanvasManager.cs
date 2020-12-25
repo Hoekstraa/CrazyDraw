@@ -9,6 +9,7 @@ namespace CrazyDraw.Canvas
         public Canvas canvas = new Canvas();
 
         public CanvasManager() { }
+        public void Add(ICommand c) { commands.Add(c); }
         public void Do(ICommand c) { c.Do(); commands.Add(c); }
         public void Undo()
         {

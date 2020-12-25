@@ -53,7 +53,7 @@ namespace CrazyDraw.Figures
 
                 if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON) && f.mouseMoveMode == true)
                 {
-                    canvasManager.Do(new MoveFigure(f.OldX, f.OldY, f.Size().x, f.Size().y, f));
+                    canvasManager.Add(new MoveFigure(f.OldX, f.OldY, f.Size().x, f.Size().y, f));
                     f.mouseMoveMode = false;
                 }
 

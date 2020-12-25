@@ -1,8 +1,6 @@
-﻿using Raylib_cs;
-using static Raylib_cs.Raylib;
+﻿using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 using CrazyDraw.Figures;
-using CrazyDraw.IO;
 
 namespace CrazyDraw
 {
@@ -41,6 +39,7 @@ namespace CrazyDraw
             while (!WindowShouldClose())    // Detect window close button or ESC key
             {
                 // Update
+                //----------------------------------------------------------------------------------
                 canvasManager.canvas.Update();
                 canvasManager.canvas.Visit(rv);
                 canvasManager.canvas.Visit(mv);

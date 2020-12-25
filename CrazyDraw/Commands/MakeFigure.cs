@@ -1,8 +1,5 @@
 ﻿using CrazyDraw.Canvas;
 using CrazyDraw.Figures;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CrazyDraw.Commands
 {

@@ -1,13 +1,10 @@
 ﻿using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
-using static Raylib_cs.KeyboardKey;
 using static Raylib_cs.MouseButton;
 using System;
-using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using CrazyDraw.Canvas;
-using System.Reflection.Metadata.Ecma335;
 using CrazyDraw.Figures;
 using CrazyDraw.Commands;
 using CrazyDraw.IO;
@@ -16,9 +13,11 @@ namespace CrazyDraw
 {
     class ButtonCollection
     {
+        List<Button> buttons = new List<Button>();
+
         internal class Button
         {
-            Color color = GRAY;
+            public Color color = GRAY;
             int x;
             int y;
             string text;
@@ -39,8 +38,6 @@ namespace CrazyDraw
                     function();
             }
         }
-
-        List<Button> buttons = new List<Button>();
 
         public ButtonCollection(CanvasManager canvasManager)
         {
@@ -82,15 +79,35 @@ namespace CrazyDraw
                 Console.WriteLine("Save pressed!");
                 return true;
             }));
-            buttons.Add(new Button(10, 10 + 25 * 6, "Ornament", () =>
+
+            buttons.Add(new Button(10,10 + 25 * 6, "Select", () =>
+            {
+                canvasManager.canvas.selecting = !canvasManager.canvas.selecting;
+                if (canvasManager.canvas.selecting)
+                {
+                    Console.WriteLine("Select enabled!");
+                }
+                else
+                {
+                    Console.WriteLine("Select disabled!");
+                }
+                return true;
+            }));
+            buttons.Add(new Button(10, 10 + 25 * 7, "Group", () =>
+            {
+
+                var mf = new GroupFigures(canvasManager, canvasManager.canvas.selectedFigures);
+                canvasManager.Do(mf);
+                Console.WriteLine("Group pressed!");
+                return true;
+            }));
+            buttons.Add(new Button(10, 10 + 25 * 8, "Ornament", () =>
             {
                 Console.WriteLine("Ornament pressed!");
                 return true;
             }));
-
         }
         public void Draw() { foreach (var b in buttons) b.Draw(); }
         public void Update() { foreach (var b in buttons) b.Update(); }
-
     }
 }
