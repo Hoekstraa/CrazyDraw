@@ -46,8 +46,12 @@ namespace CrazyDraw.Figures
             uid = Global.UniqueId;
             Global.UniqueId += 1;
         }
+        
+        public string ToString(int indent)
+        {
+            return "not complete! (BasicFigure)";
+        }
 
-        public void Update() { }
         public void Draw() {
             strat.Draw(posX,posY,width,height, color,selected,mouseScaleReady);
         }

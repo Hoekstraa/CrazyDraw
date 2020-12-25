@@ -11,9 +11,6 @@ namespace CrazyDraw.Canvas
         public void Update() {
             if (selecting)
                 SelectFigures();
-
-            foreach (var fig in figures)
-                fig.Update();
         }
 
         public void Visit(IFigure.IVisitor visitor) {
@@ -33,13 +30,14 @@ namespace CrazyDraw.Canvas
         public void SelectFigures() {
             if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 foreach(var fig in Enumerable.Reverse(figures))
-                {
-                    selectedFigures.Add(fig);
-                    //break;
-                }
+                    if(fig.Collide(GetMousePosition()))
+                    {
+                        selectedFigures.Add(fig);
+                        break;
+                    }
         }
 
-        List<IFigure> figures = new List<IFigure>();
+        public List<IFigure> figures = new List<IFigure>();
         public bool selecting = false;
         public List<IFigure> selectedFigures = new List<IFigure>();
     }

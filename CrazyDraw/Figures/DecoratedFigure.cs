@@ -17,7 +17,11 @@ namespace CrazyDraw.Figures
         int uid;
 
         public DecoratedFigure(IFigure figure) { this.figure = figure; uid = Global.UniqueId++; }
-        public void Update() {figure.Update();}
+
+        public string ToString(int indent)
+        {
+            return "not complete! (DecoratedFigure)";
+        }
 
         public void Draw()
         {
@@ -58,7 +62,7 @@ namespace CrazyDraw.Figures
             north = North;
         }
 
-        public bool Collide(Vector2 point) { Console.WriteLine("DecoratedFigure Collide() placeholder hit"); return false; }
+        public bool Collide(Vector2 point) { return figure.Collide(point); }
         public Rectangle Size() { return figure.Size(); }
 
         public void Resize(float x, float y) { figure.Resize(x,y);}

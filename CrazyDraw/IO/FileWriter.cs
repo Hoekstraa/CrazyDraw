@@ -13,12 +13,13 @@ namespace CrazyDraw.IO
 
         public void Write(ref List<IFigure> figures)
         {
-            using (var file = new FileStream(filename, FileMode.Open))
+            using (StreamWriter file = new StreamWriter(filename, false))
+            //using (var file = new FileStream(filename, FileMode.Open))
             {
-                file.Write(Encoding.UTF8.GetBytes("group " + figures.Count + "\n"));
+                file.WriteLine("group " + figures.Count);
 
                 foreach(var fig in figures)
-                    file.Write(Encoding.UTF8.GetBytes(fig.ToString() + "\n"));
+                    file.WriteLine(fig.ToString(1));
             }
         }
     }

@@ -20,10 +20,11 @@ namespace CrazyDraw.Figures
 
         public Group(){uid = Global.UniqueId++;}
 
-        public void Update() {
-            //foreach(IFigure f in figures)
-            //    f.Update();
+        public string ToString(int indent)
+        {
+            return "not complete! (Group)";
         }
+
         public void Draw() {
             foreach(IFigure f in figures)
                 f.Draw();

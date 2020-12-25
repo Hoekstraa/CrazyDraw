@@ -77,6 +77,8 @@ namespace CrazyDraw
             buttons.Add(new Button(10, 10 + 25 * 5, "Save", () =>
             {
                 Console.WriteLine("Save pressed!");
+                var fw = new FileWriter("./drawing.cd");
+                fw.Write(ref canvasManager.canvas.figures);
                 return true;
             }));
 
