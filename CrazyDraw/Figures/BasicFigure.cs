@@ -1,9 +1,6 @@
 ﻿using Raylib_cs;
-using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 using System.Numerics;
-using System.Collections.Generic;
-using System;
 
 namespace CrazyDraw.Figures
 {
@@ -53,7 +50,7 @@ namespace CrazyDraw.Figures
         }
 
         public void Draw() {
-            strat.Draw(posX,posY,width,height, color,selected,mouseScaleReady);
+            strat.Draw(posX,posY,width,height,color,selected,mouseScaleReady);
         }
 
         public void Accept(IFigure.IVisitor visitor)

@@ -108,6 +108,8 @@ namespace CrazyDraw
             buttons.Add(new Button(10, 10 + 25 * 8, "Ornament", () =>
             {
                 Console.WriteLine("Ornament pressed!");
+                var ao = new AddOrnament(canvasManager, canvasManager.canvas.selectedFigures);
+                canvasManager.Do(ao);
                 return true;
             }));
         }

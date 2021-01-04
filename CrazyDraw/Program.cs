@@ -23,8 +23,10 @@ namespace CrazyDraw
 
             var rv = new Figures.IFigure.ResizeVisitor(canvasManager);
             var mv = new Figures.IFigure.MoveVisitor(canvasManager);
+            //var select = new Figures.IFigure.SelectVisitor(true);
+            //var deselect = new Figures.IFigure.SelectVisitor(false);
 
-            BasicFigure.EllipseStrategy rectangleStrat = BasicFigure.EllipseStrategy.Instance;
+            //BasicFigure.EllipseStrategy rectangleStrat = BasicFigure.EllipseStrategy.Instance;
 
             // Temporary Decorated Figure testing
             DecoratedFigure df = new DecoratedFigure(new BasicFigure(300, 300, 50, 50, BasicFigure.RectangleStrategy.Instance));

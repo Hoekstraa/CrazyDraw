@@ -15,6 +15,7 @@ namespace CrazyDraw.Figures
         string east = "";
         string west = "";
         int uid;
+        internal bool selected = false;
 
         public DecoratedFigure(IFigure figure) { this.figure = figure; uid = Global.UniqueId++; }
 
@@ -50,6 +51,8 @@ namespace CrazyDraw.Figures
             DrawTextRec(GetFontDefault(), east,
                     new Rectangle(figure.Size().x + figure.Size().width, figure.Size().y, 100, 40 ),
                     20, 1, true, BLACK);
+
+            if(selected);
 
         }
         public int UID() { return uid; }
